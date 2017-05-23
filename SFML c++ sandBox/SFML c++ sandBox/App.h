@@ -10,32 +10,22 @@ class App
 public:
 
 	App();
-	void Start();
-	void Update();
-	void Draw();
-	void StartUp();
-	RenderWindow* GetWindow();
-
-	float getDeltaTime();
-
-	static App* m_instance;
-
-	static App& instance()
-	{
-		return *m_instance;
-	}
-
-
+	void execute();
 	~App();
+	int horizontal;
+	int vertical;
 
 private:
+
+	void Start();
+	void Update(float deltaTime);
+	void Draw(sf::RenderWindow* a_window);
+	void Shutdown();
 
 	void GetDesktopResolution(int& horizontal, int& vertical);
 
 	float deltaTime;
 	Game*  game;
-	int horizontal;
-	int vertical;
 	const float FPS = 60.0f;
 	RenderWindow window;
 

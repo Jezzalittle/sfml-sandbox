@@ -1,11 +1,28 @@
 #include "App.h"
 
+void App::execute()
+{
+	Clock clock;
+	Start();
+	while (window.isOpen())
+	{
+		Time time = clock.restart();
+		deltaTime = clock.getElapsedTime().asSeconds();
 
-
+		game->Update(deltaTime);
+		Draw(&window);
+		Shutdown();
+	}
+}
 
 App::App()
 {
-
+	GetDesktopResolution(horizontal, vertical);
+	window.setFramerateLimit((unsigned int)FPS);
+	sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+	window.create(VideoMode(horizontal, vertical, desktop.bitsPerPixel), "2d Light Example",Style::Fullscreen);
+	game = new Game(this);
+	execute();
 }
 
 void App::GetDesktopResolution(int& horizontal, int& vertical)
@@ -18,69 +35,46 @@ void App::GetDesktopResolution(int& horizontal, int& vertical)
 	// The top left corner will have coordinates (0,0)
 	// and the bottom right corner will have coordinates
 	// (horizontal, vertical)
-	horizontal = desktop.right;
+	horizontal = desktop.right - 30;
 	vertical = desktop.bottom;
 }
 
-
-void App::Start()
+void App::Shutdown()
 {
-	GetDesktopResolution(horizontal, vertical);
-	window.setFramerateLimit(FPS);
-	window.create(VideoMode(horizontal, vertical), "SFML works!");
-	game = new Game();
-	Update();
-}
-
-
-
-
-void App::Update()
-{
-	Clock clock;
-	while (window.isOpen())
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
-		Time time = clock.restart();
-		deltaTime = clock.getElapsedTime().asSeconds();
-		
-		game->Update();
+		window.close();
+	}
 
-		sf::Event event;
-		while (window.pollEvent(event))
+	sf::Event event;
+	while (window.pollEvent(event))
+	{
+		if (event.type == sf::Event::Closed)
 		{
-			if (event.type == sf::Event::Closed)
-			{
-				window.close();
-			}
+			window.close();
 		}
-		Draw();
 	}
 }
 
-void App::Draw()
+void App::Start()
 {
-
-	window.clear();
-	//game->Draw();
-
-	window.display();
+	game->Start();
 }
 
-void App::StartUp()
+void App::Update(float deltaTime)
 {
+	game->Update(deltaTime);
 }
 
-RenderWindow * App::GetWindow()
+void App::Draw(sf::RenderWindow* a_window)
 {
-	return &window;
-}
-
-float App::getDeltaTime()
-{
-	return deltaTime;
+	a_window->clear();
+	game->Draw(a_window);
+	a_window->display();
 }
 
 App::~App()
 {
+	delete game;
 }
 

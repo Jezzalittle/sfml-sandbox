@@ -1,0 +1,153 @@
+﻿  LightBox.cpp
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.h(27): error C2143: syntax error: missing ';' before '*'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.h(27): error C2238: unexpected token(s) preceding ';'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(85): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(97): warning C4018: '<': signed/unsigned mismatch
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(99): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(99): error C2227: left of '->pos' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(99): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(101): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(101): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(101): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(101): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(103): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(103): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(103): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(103): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(106): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(106): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(106): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(108): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(108): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(108): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(111): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(111): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(111): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(113): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(113): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(113): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(113): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(116): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(116): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(116): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(116): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(118): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(118): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(118): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(128): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(128): error C2227: left of '->pos' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(128): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(130): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(130): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(130): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(130): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(132): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(132): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(132): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(135): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(135): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(135): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(135): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(137): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(137): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(137): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(137): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(140): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(140): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(140): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(140): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(142): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(142): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(142): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(142): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(145): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(145): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(145): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(145): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(147): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(147): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(147): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(147): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(157): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(157): error C2227: left of '->pos' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(157): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(159): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(159): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(159): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(159): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(161): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(161): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(161): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(161): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(164): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(164): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(164): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(164): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(166): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(166): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(166): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(166): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(169): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(169): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(169): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(169): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(171): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(171): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(171): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(171): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(174): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(174): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(174): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(174): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(176): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(176): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(176): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(176): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(186): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(186): error C2227: left of '->pos' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(186): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(188): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(188): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(188): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(188): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(190): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(190): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(190): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(190): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(193): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(193): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(193): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(193): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(195): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(195): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(195): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(195): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(198): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(198): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(198): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(198): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(200): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(200): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(200): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(200): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(203): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(203): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(203): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(203): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(205): error C2065: 'ray': undeclared identifier
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(205): error C2227: left of '->LineIntersectionPoint' must point to class/struct/union/generic type
+  c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(205): note: type is 'unknown-type'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(205): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Game.cpp
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.h(27): error C2143: syntax error: missing ';' before '*'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\lightbox.h(27): error C2238: unexpected token(s) preceding ';'
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\game.cpp(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml c++ sandbox\sfml c++ sandbox\game.cpp(46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...

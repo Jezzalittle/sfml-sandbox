@@ -144,7 +144,7 @@ void LightBox::DrawLines(RenderWindow * renderer)
 
 	for (int i = 0; i < blocks.size(); i++)
 	{
-		tempvec = ray->pos - blocks[i]->tl;
+		tempvec =  blocks[i]->tl - ray->pos;
 
 		L1Start = newPos;
 		L1End = newPos + (tempvec * 1.05f);//(float)(w));
@@ -160,6 +160,12 @@ void LightBox::DrawLines(RenderWindow * renderer)
 		renderer->draw(rect);
 
 		Vector2f intersectionpoint;
+
+		//#######################################
+		//the issue is to do with the line that is drawing from the light sourse to the point on the wall being infinity long which means that both sides hit the ball
+		//eg if the line is going stright up it will hit the top wall as well as hitting the bottem wall
+		// ask ian for help with making the length of the light ray smaller
+		//#######################################
 
 		if (ray->LineSegmentIntersectionPoint(newPos, newPos + (tempvec * (float)(w * 2)), Vector2f(0, 0), Vector2f(w, 0), intersectionpoint) == true)
 		{
@@ -188,7 +194,7 @@ void LightBox::DrawLines(RenderWindow * renderer)
 
 		//
 
-		tempvec = -ray->pos - blocks[i]->tr;
+		tempvec =  blocks[i]->tr - ray->pos;
 
 		L1End = newPos + (tempvec * 1.05f);//(float)(w));
 		L2Start = Vector2f(w, 0);
@@ -231,7 +237,7 @@ void LightBox::DrawLines(RenderWindow * renderer)
 
 		//
 
-		tempvec = ray->pos - blocks[i]->bl;
+		tempvec =  blocks[i]->bl - ray->pos;
 
 
 		L1End = newPos + (tempvec * 1.05f);//(float)(w));
@@ -276,7 +282,7 @@ void LightBox::DrawLines(RenderWindow * renderer)
 
 		//
 
-		tempvec = ray->pos - blocks[i]->br;
+		tempvec = blocks[i]->br - ray->pos;
 
 
 

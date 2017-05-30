@@ -4,6 +4,6 @@
 
 void main()
 {
-	App app;
+	 App* app = new App();
 }
 

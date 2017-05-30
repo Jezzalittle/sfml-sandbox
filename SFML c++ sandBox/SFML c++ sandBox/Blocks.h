@@ -14,6 +14,8 @@ public:
 
 	void Draw(RenderWindow * renderer);
 
+
+
 	~Blocks();
 
 	Vector2f tl, tr, bl, br;

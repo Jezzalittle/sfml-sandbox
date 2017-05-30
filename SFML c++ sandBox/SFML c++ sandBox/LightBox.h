@@ -34,7 +34,7 @@ public:
 	void DrawLines(RenderWindow * renderer);
 
 private:
-	Vector2f newPos;
+	Vector2f LightBoxPos;
 	bool drawLines;
 	std::vector<Blocks*> blocks;
 	sf::RectangleShape light;

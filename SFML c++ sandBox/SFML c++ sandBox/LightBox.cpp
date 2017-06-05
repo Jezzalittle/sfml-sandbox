@@ -171,112 +171,203 @@ void LightBox::DrawLines(RenderWindow * renderer)
 		//for (int i = 0; i < blocks.size(); i++)
 		//{
 			//tl
-
+		 
 			//looks to see if the ray to the top left of the box we are looking at to see if any if the edges are being colided wotj early
+
+			std::cout << "checking ray from light to tl of box " << i << std::endl;
 			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tl, blocks[i]->tl, blocks[i]->tr, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+					std::cout << "top edge hit" << std::endl;
 			}
 			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tl, blocks[i]->tr, blocks[i]->br, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "right edge hit" << std::endl;
 			}
 			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tl, blocks[i]->br, blocks[i]->bl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "bottem edge hit" << std::endl;
 			}
 			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tl, blocks[i]->bl, blocks[i]->tl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "left edge hit" << std::endl;
 			}
 
 
 
 			//tr
+
+			std::cout << "checking ray from light to tr of box " << i << std::endl;
 			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tr, blocks[i]->tl, blocks[i]->tr, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "top edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tr, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tr, blocks[i]->tr, blocks[i]->br, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "right edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tr, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tr, blocks[i]->br, blocks[i]->bl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "bottem edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tr, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->tr, blocks[i]->bl, blocks[i]->tl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "left edge hit" << std::endl;
 			}
 
 			//bl
+
+			std::cout << "checking ray from light to bl of box " << i << std::endl;
+
 			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->bl, blocks[i]->tl, blocks[i]->tr, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "top edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->bl, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->bl, blocks[i]->tr, blocks[i]->br, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "right edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->bl, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->bl, blocks[i]->br, blocks[i]->bl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "bottem edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->bl, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->bl, blocks[i]->bl, blocks[i]->tl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "left edge hit" << std::endl;
 			}
 
 
 			//br
+
+			std::cout << "checking ray from light to br of box " << i << std::endl;
+
 			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->br, blocks[i]->tl, blocks[i]->tr, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "top edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->br, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->br, blocks[i]->tr, blocks[i]->br, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "right edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->br, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->br, blocks[i]->br, blocks[i]->bl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "bottem edge hit" << std::endl;
 			}
-			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->br, blocks[i]->tl, blocks[i]->tr, intersect))
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->br, blocks[i]->bl, blocks[i]->tl, intersect))
 			{
 				lightShapePoints.push_back(intersect);
+				std::cout << "left edge hit" << std::endl;
 			}
 
 		//}
-
-		for (size_t i = 0; i < lightShapePoints.size(); i++)
+		
+		for (size_t j = 0; j < lightShapePoints.size(); j++)
 		{
-			if (lightShapePoints[i] == blocks[i]->tl || lightShapePoints[i] == blocks[i]->tr || lightShapePoints[i] == blocks[i]->bl || lightShapePoints[i] == blocks[i]->br)
+			if (lightShapePoints[j] == blocks[i]->tl)
 			{
+				tempvec = blocks[i]->tl - ray->pos;	
 
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[i], Vector2f(0, 0), Vector2f(w, 0), temp) == true)
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, 0), Vector2f(w, 0), temp) == true)
 				{
-					lightShapePoints[i] = temp;
+					lightShapePoints[j] = temp;
 				}
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[i], Vector2f(w, 0), Vector2f(w, h), temp) == true)
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, 0), Vector2f(w, h), temp) == true)
 				{
-					lightShapePoints[i] = temp;
+					lightShapePoints[j] = temp;
 				}
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[i], Vector2f(w, h), Vector2f(0, h), temp) == true)
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, h), Vector2f(0, h), temp) == true)
 				{
-					lightShapePoints[i] = temp;
+					lightShapePoints[j] = temp;
 				}
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[i], Vector2f(0, h), Vector2f(0, 0), temp) == true)
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, h), Vector2f(0, 0), temp) == true)
 				{
-					lightShapePoints[i] = temp;
+					lightShapePoints[j] = temp;
 				}
 			}
+			if (lightShapePoints[j] == blocks[i]->tr)
+			{
+				tempvec = blocks[i]->tr - ray->pos;
+
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, 0), Vector2f(w, 0), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, 0), Vector2f(w, h), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, h), Vector2f(0, h), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, h), Vector2f(0, 0), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+			}
+			if (lightShapePoints[j] == blocks[i]->br)
+			{
+				tempvec = blocks[i]->br - ray->pos;
+
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, 0), Vector2f(w, 0), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, 0), Vector2f(w, h), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, h), Vector2f(0, h), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, h), Vector2f(0, 0), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+			}
+			if (lightShapePoints[j] == blocks[i]->bl)
+			{
+				tempvec = blocks[i]->bl - ray->pos;
+
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, 0), Vector2f(w, 0), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, 0), Vector2f(w, h), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(w, h), Vector2f(0, h), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+				if (ray->LineSegmentIntersectionPoint(LightBoxPos, lightShapePoints[j] + (tempvec * (float)(w * 2)), Vector2f(0, h), Vector2f(0, 0), temp) == true)
+				{
+					lightShapePoints[j] = temp;
+				}
+			}
+
 		}
 
 
-		for (size_t i = 0; i < lightShapePoints.size(); i++)
+		for (size_t k = 0; k < lightShapePoints.size(); k++)
 		{
-			line[1].position = lightShapePoints[i];
+			line[1].position = lightShapePoints[k];
 			renderer->draw(line, 2, sf::Lines);
 		}
 

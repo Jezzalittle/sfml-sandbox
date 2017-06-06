@@ -1,19 +1,8 @@
 ﻿  LightBox.cpp
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(167): warning C4018: '<': signed/unsigned mismatch
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(284): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(288): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(292): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(296): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(305): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(309): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(313): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(317): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(326): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(330): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(334): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(338): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(347): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(351): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(355): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(359): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(219): warning C4018: '<': signed/unsigned mismatch
+c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(228): warning C4018: '<': signed/unsigned mismatch
+c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(250): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(254): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(258): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(262): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   SFML c++ sandBox.vcxproj -> C:\Users\s170895\Desktop\SFML repo\SFML c++ sandBox\Debug\SFML c++ sandBox.exe

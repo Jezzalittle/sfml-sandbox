@@ -19,6 +19,11 @@ void Blocks::Start()
 	box.setPoint(3, bl);
 
 	box.setFillColor(sf::Color::Green);
+
+	vertexArr.push_back(tl);
+	vertexArr.push_back(tr);
+	vertexArr.push_back(bl);
+	vertexArr.push_back(br);
 }
 
 void Blocks::Update(float deltaTime)

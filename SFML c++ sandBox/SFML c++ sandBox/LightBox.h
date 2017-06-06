@@ -15,7 +15,9 @@ public:
 	bool LineSegmentIntersectionPoint(Vector2f ls1, Vector2f le1, Vector2f ls2, Vector2f le2, Vector2f& intersectionPoint);
 private:
 	float rot;
-
+	Vector2f CheckRayCol(Vector2f lightBox, Vector2f vetexChecking, Vector2f edgeVetex1, Vector2f edgeVetex2, Raycast* ray);
+	std::vector<Vector2f*> getAllColForABox(Vector2f lightBox, std::vector<Blocks*> boxArrays);
+	std::vector <std::vector <Vector2f*>> getAllCol(Vector2f lightBox, Vector2f a_tl, Vector2f a_tr, Vector2f a_bl, Vector2f a_br);
 	Vector2f rotvec;
 
 };

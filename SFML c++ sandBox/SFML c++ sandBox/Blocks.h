@@ -18,6 +18,8 @@ public:
 
 	~Blocks();
 
+	std::vector <Vector2f> vertexArr;
+
 	Vector2f tl, tr, bl, br;
 
 private:

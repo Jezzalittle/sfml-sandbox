@@ -207,13 +207,26 @@ void LightBox::DrawLines(RenderWindow * renderer)
 	rect.setSize(Vector2f(10, 10));
 	rect.setFillColor(Color::Magenta);
 
+	int tempLength;
 	for (size_t i = 0; i < blocks.size(); i++)
 	{
-	for (size_t j = 0; j < blocks[i]->vertexArr.size(); j++)
+		for (size_t j = 0; j < blocks[i]->vertexArr.size(); j++)
 		{
-			temp = (Vector2f(-blocks[i]->vertexArr[j].y, blocks[i]->vertexArr[j].x));
-			temp = 
-		//blocks[i]->vertexArr[j] 
+			//temp = (Vector2f(-blocks[i]->vertexArr[j].y, blocks[i]->vertexArr[j].x));
+			//tempLength = sqrt((temp.x * temp.x) + (temp.y + temp.y));
+			//temp = temp + Vector2f(temp.x / tempLength, temp.y / tempLength);
+			//lightShapePoints.push_back(temp);
+			//temp = (Vector2f(blocks[i]->vertexArr[j].y, -blocks[i]->vertexArr[j].x));
+			//tempLength = sqrt((temp.x * temp.x) + (temp.y + temp.y));
+			//temp = temp + Vector2f(temp.x / tempLength, temp.y / tempLength);
+			//lightShapePoints.push_back(temp); 
+
+			temp = Vector2f(blocks[i]->vertexArr[j].x + 10, blocks[i]->vertexArr[j].y + 10);
+			lightShapePoints.push_back(temp);
+			temp = Vector2f(blocks[i]->vertexArr[j].x - 10, blocks[i]->vertexArr[j].y - 10);
+			lightShapePoints.push_back(temp);
+
+			// the points arent long enough 
 		}
 	}
 

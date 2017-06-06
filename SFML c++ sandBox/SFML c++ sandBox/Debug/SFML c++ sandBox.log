@@ -1,8 +1,10 @@
 ﻿  LightBox.cpp
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(219): warning C4018: '<': signed/unsigned mismatch
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(228): warning C4018: '<': signed/unsigned mismatch
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(250): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(254): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(258): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(262): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  SFML c++ sandBox.vcxproj -> C:\Users\s170895\Desktop\SFML repo\SFML c++ sandBox\Debug\SFML c++ sandBox.exe
+c:\users\owner\desktop\uni work\c++ sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(231): warning C4018: '<': signed/unsigned mismatch
+c:\users\owner\desktop\uni work\c++ sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(240): warning C4018: '<': signed/unsigned mismatch
+c:\users\owner\desktop\uni work\c++ sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(262): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\owner\desktop\uni work\c++ sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(266): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\owner\desktop\uni work\c++ sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(270): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\owner\desktop\uni work\c++ sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(274): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\owner\desktop\uni work\c++ sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(210): warning C4101: 'tempLength': unreferenced local variable
+  SFML c++ sandBox.vcxproj -> C:\Users\Owner\Desktop\Uni Work\C++ sfml repo\SFML c++ sandBox\Debug\SFML c++ sandBox.exe
+  SFML c++ sandBox.vcxproj -> C:\Users\Owner\Desktop\Uni Work\C++ sfml repo\SFML c++ sandBox\Debug\SFML c++ sandBox.pdb (Full PDB)

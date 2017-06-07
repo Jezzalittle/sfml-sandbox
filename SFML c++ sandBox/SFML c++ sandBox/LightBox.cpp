@@ -6,6 +6,20 @@
 
 #include <iostream>
 
+float magnitude(Vector2f a)
+{
+	return sqrt(a.x*a.x + a.y*a.y);
+}
+
+Vector2f normalise(Vector2f a)
+{
+	float mag = magnitude(a);
+	if (mag == 0)
+		return a;
+
+	return Vector2f(a.x / mag, a.y / mag);
+}
+
 
 Raycast::Raycast(Vector2f v2, float a_rot)
 {
@@ -176,12 +190,15 @@ void LightBox::Draw(RenderWindow * renderer)
 	{
 		DrawLines(renderer);
 
-	}
+	} 
 }
 
 
 void LightBox::DrawLines(RenderWindow * renderer)
 {
+
+
+
 	sf::Vertex line[2];
 	line[0].color = sf::Color::Green;
 	line[1].color = sf::Color::Green;
@@ -201,17 +218,36 @@ void LightBox::DrawLines(RenderWindow * renderer)
 
 	Vector2f temp;
 
+
+
 	std::vector < Vector2f > lightShapePoints;
 	std::vector < Vector2f> badList;
 	line[0].position = LightBoxPos;
 	rect.setSize(Vector2f(10, 10));
 	rect.setFillColor(Color::Magenta);
 
-	int tempLength;
+	Vector2f tempVecBetween;
+
 	for (size_t i = 0; i < blocks.size(); i++)
 	{
-		for (size_t j = 0; j < blocks[i]->vertexArr.size(); j++)
+		int tempLength = blocks[i]->vertexArr.size();
+		for (size_t j = 0; j < tempLength; j++)
 		{
+
+			Vector2f vertex = blocks[i]->vertexArr[j];
+
+			//get perpindicular vectors
+			Vector2f leftPerpVertex(-vertex.y, vertex.x);
+			Vector2f rightPerpVertex(vertex.y, -vertex.x);
+
+			//normalise vectors
+			leftPerpVertex  = normalise(leftPerpVertex) * 20.0f;
+			rightPerpVertex = normalise(rightPerpVertex) * 20.0f;
+
+			//add left and right perp to the vector
+			blocks[i]->vertexArr.push_back(vertex + leftPerpVertex);
+			blocks[i]->vertexArr.push_back(vertex + rightPerpVertex);
+
 			//temp = (Vector2f(-blocks[i]->vertexArr[j].y, blocks[i]->vertexArr[j].x));
 			//tempLength = sqrt((temp.x * temp.x) + (temp.y + temp.y));
 			//temp = temp + Vector2f(temp.x / tempLength, temp.y / tempLength);
@@ -221,14 +257,20 @@ void LightBox::DrawLines(RenderWindow * renderer)
 			//temp = temp + Vector2f(temp.x / tempLength, temp.y / tempLength);
 			//lightShapePoints.push_back(temp); 
 
-			temp = Vector2f(blocks[i]->vertexArr[j].x + 10, blocks[i]->vertexArr[j].y + 10);
-			lightShapePoints.push_back(temp);
-			temp = Vector2f(blocks[i]->vertexArr[j].x - 10, blocks[i]->vertexArr[j].y - 10);
-			lightShapePoints.push_back(temp);
+			//temp = Vector2f(blocks[i]->vertexArr[j].x + 10, blocks[i]->vertexArr[j].y + 10);
+			//tempVecBetween = temp - ray->pos;
+			//tempVecBetween = Vector2f(temp.x * (w * 2), temp.y * (w * 2));
+			//blocks[i]->vertexArr.push_back(tempVecBetween);
+			//temp = Vector2f(blocks[i]->vertexArr[j].x - 10, blocks[i]->vertexArr[j].y - 10);
+			//tempVecBetween = temp - ray->pos;
+			//tempVecBetween = Vector2f(temp.x * (w * 2), temp.y * (w * 2));
+			//blocks[i]->vertexArr.push_back(tempVecBetween);
 
 			// the points arent long enough 
 		}
 	}
+
+	//goes over each box
 
 	for (int i = 0; i < blocks.size(); i++)
 	{
@@ -238,61 +280,72 @@ void LightBox::DrawLines(RenderWindow * renderer)
 	//	{
 
 
+		//checks over each vertex
+		for (int j = 0; j < blocks[i]->vertexArr.size(); j++)
+		{
+			//each wall
 
-			for (int j = 0; j < blocks[i]->vertexArr.size(); j++)
+
+
+			tempvec = blocks[i]->vertexArr[j] - ray->pos;
+
+			// If at end loop back
+			//ray from light source to vertex, against edge of box
+			if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j], blocks[i]->vertexArr[0], blocks[i]->vertexArr[1], intersect))
 			{
-				tempvec = blocks[i]->vertexArr[j] - ray->pos;
-				
-				// If at end loop back
-				if (j == 3)
-				{
-					if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j], blocks[i]->vertexArr[j], blocks[i]->vertexArr[0], intersect))
-					{
-						lightShapePoints.push_back(intersect);
-					}
-					
-				}
-				else
-				{
-					if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j], blocks[i]->vertexArr[j], blocks[i]->vertexArr[j + 1], intersect))
-					{
-						lightShapePoints.push_back(intersect);
-					}
-				}
-
-
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(0, 0), Vector2f(w, 0), temp) == true)
-				{
-					lightShapePoints.push_back(intersect);
-				}
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(w, 0), Vector2f(w, h), temp) == true)
-				{
-					lightShapePoints.push_back(intersect);
-				}
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(w, h), Vector2f(0, h), temp) == true)
-				{
-					lightShapePoints.push_back(intersect);
-				}
-				if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(0, h), Vector2f(0, 0), temp) == true)
-				{
-					lightShapePoints.push_back(intersect);
-				}
+				lightShapePoints.push_back(intersect);
+			}
+			else if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j], blocks[i]->vertexArr[1], blocks[i]->vertexArr[2], intersect))
+			{
+				lightShapePoints.push_back(intersect);
+			}
+			else if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j], blocks[i]->vertexArr[2], blocks[i]->vertexArr[3], intersect))
+			{
+				lightShapePoints.push_back(intersect);
+			}
+			else if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j], blocks[i]->vertexArr[3], blocks[i]->vertexArr[0], intersect))
+			{
+				lightShapePoints.push_back(intersect);
+			}
+			else if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(0, 0), Vector2f(w, 0), temp) == true)
+			{
+				lightShapePoints.push_back(intersect);
+			}
+			else if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(w, 0), Vector2f(w, h), temp) == true)
+			{
+				lightShapePoints.push_back(intersect);
+			}
+			else if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(w, h), Vector2f(0, h), temp) == true)
+			{
+				lightShapePoints.push_back(intersect);
+			}
+			else if (ray->LineSegmentIntersectionPoint(LightBoxPos, blocks[i]->vertexArr[j] + (tempvec * (float)(w * 2)), Vector2f(0, h), Vector2f(0, 0), temp) == true)
+			{
+				lightShapePoints.push_back(intersect);
 			}
 
-
-
-		//}
-		for (size_t k = 0; k < lightShapePoints.size(); k++)
-		{
-			line[1].position = lightShapePoints[k];
-			renderer->draw(line, 2, sf::Lines);
 		}
 
+
 	}
+
+
+
+
+
+
+	//}
+	for (size_t k = 0; k < lightShapePoints.size(); k++)
+	{
+		line[1].position = lightShapePoints[k];
+		renderer->draw(line, 2, sf::Lines);
+	}
+
+
+
+
+
 }
-
-		
-
 
 
 

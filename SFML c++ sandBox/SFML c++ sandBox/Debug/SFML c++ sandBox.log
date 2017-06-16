@@ -1,9 +1,0 @@
-﻿  LightBox.cpp
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(234): warning C4018: '<': signed/unsigned mismatch
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(275): warning C4018: '<': signed/unsigned mismatch
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(284): warning C4018: '<': signed/unsigned mismatch
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(310): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(314): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(318): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s170895\desktop\sfml repo\sfml c++ sandbox\sfml c++ sandbox\lightbox.cpp(322): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  SFML c++ sandBox.vcxproj -> C:\Users\s170895\Desktop\SFML repo\SFML c++ sandBox\Debug\SFML c++ sandBox.exe

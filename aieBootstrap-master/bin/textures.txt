@@ -1,0 +1,4 @@
+./textures/BlueBucket.png
+./textures/GreenBucket.png
+./textures/PinkBucket.png
+./textures/RedBucket.png

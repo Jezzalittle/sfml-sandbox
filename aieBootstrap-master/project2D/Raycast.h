@@ -16,10 +16,16 @@ public:
 	
 	void Draw(aie::Renderer2D * renderer);
 
+	float GetDegree();
+
+
+
 	Vector2 LineIntersectionPoint(Raycast* ray2);
 	bool LineSegmentIntersectionPoint(Vector2 pos1, Vector2 pos2, Vector2& intersectionPoint);
 
 	void CheckForRaycollision(std::vector <Shape*> shapeArr);
+
+	
 
 private:
 

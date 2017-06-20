@@ -22,10 +22,14 @@ public:
 	~GameScene();
 private:
 
+	void clearRayArr();
+
 	std::vector <GameObject*> GOarray; 
 	std::vector <Shape*> ShapeArr;
 	aie::Input* input;
 	bool firstPress;
+	bool UpdateShapes;
+
 
 	LightBox* lightBox;
 	std::vector<Raycast*> rayArr;
@@ -34,6 +38,7 @@ private:
 	Vector2 tr;
 	Vector2 bl;
 	Vector2 br;
+	Vector2 mid;
 
 };
 

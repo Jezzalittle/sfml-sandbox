@@ -14,8 +14,8 @@ Shape::Shape(Vector2 tl, Vector2 tr, Vector2 br, Vector2 bl) : GameObject()
 	addVetex(bl);
 
 	tag = "Shape";
-
-
+	middle.x = (tl.x + tr.x) / 2;
+	middle.y = (tl.y + bl.y) / 2;
 }
 
 void Shape::addVetex(Vector2 v2)
@@ -46,6 +46,11 @@ void Shape::Draw(aie::Renderer2D * renderer)
 
 void Shape::Update(float deltaTime)
 {
+}
+
+Vector2 Shape::GetMiddle()
+{
+	return middle;
 }
 
 Shape::~Shape()

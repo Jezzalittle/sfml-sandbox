@@ -45,15 +45,52 @@ std::vector<Raycast*> LightBox::MakeRays(std::vector<Shape*> shapeArr)
 
 
 				Raycast* ray = new Raycast(transform.GetPosition(), shapeArr[i]->getVertex()[j] + (tempvec * (float)(500)));
-				rayArr.push_back(ray);
+				rayArr.insert(rayArr.begin(), ray);
 				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] - Vector2(1, 1)) + (tempvec * (float)(500)));
-				rayArr.push_back(ray);
+				rayArr.insert(rayArr.begin(), ray);
 				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] + Vector2(1,1)) + (tempvec * (float)(500)));
-				rayArr.push_back(ray);
+				rayArr.insert(rayArr.begin(),ray);
 			}
 		}
 		return rayArr;
 }
+
+std::vector<Vector2*> LightBox::sortArrayByRot(std::vector<Raycast*> rayArr)
+{
+	return std::vector<Vector2*>();
+}
+
+std::vector<Shape*> LightBox::sortShapes(std::vector<Shape*> shapesArr)
+{
+	std::vector<Shape*> resortedArr;
+
+	int n = shapesArr.size();
+
+	resortedArr = shapesArr;
+	
+	Shape* temp;
+
+	for (int i = 1; i<n; ++i)
+	{
+		for (int j = 0; j < (n - i); ++j)
+		{
+			Vector2 VecBetweenIndex = resortedArr[j]->GetMiddle() - GetPosition();
+			Vector2 VecBetweenIndex2 = resortedArr[j + 1]->GetMiddle() - GetPosition();
+
+			if (VecBetweenIndex.Magnitude() < VecBetweenIndex2.Magnitude())
+			{
+				temp = resortedArr[j];
+				resortedArr[j] = resortedArr[j + 1];
+				resortedArr[j + 1] = temp;
+			}
+		}
+	}
+
+	return shapesArr;
+
+}
+
+
 
 
 LightBox::~LightBox()

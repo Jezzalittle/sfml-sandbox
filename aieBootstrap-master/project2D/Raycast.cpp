@@ -1,22 +1,34 @@
 #include "Raycast.h"
-
+#include <math.h>
 
 Raycast::Raycast(Vector2 p1, Vector2 p2) : GameObject()
 {
 	beginingPos = p1;
 	endingPos = p2;
+	tag = "ray";
 }
 
 Raycast::Raycast() : GameObject()
 {
 	beginingPos = Vector2();
 	endingPos = Vector2();
+	tag = "ray";
 }
 
 void Raycast::Draw(aie::Renderer2D * renderer)
 {
 	renderer->drawLine(beginingPos.x, beginingPos.y, endingPos.x, endingPos.y);
+	renderer->drawCircle(endingPos.x, endingPos.y, 5);
 }
+
+float Raycast::GetDegree()
+{
+	Vector2 vecBetween = endingPos - beginingPos;
+	float radians = atan2f(vecBetween.y, vecBetween.x);
+	return radians * (180.0f / 3.14159265358979323846f);
+}
+
+
 
 Vector2 Raycast::LineIntersectionPoint(Raycast* ray2)
 {
@@ -38,7 +50,6 @@ Vector2 Raycast::LineIntersectionPoint(Raycast* ray2)
 		return Vector2(-1, -1);
 	}
 
-	std::cout << " " << A2 << std::endl;
 	// now return the Vector2 intersection point
 	return Vector2((B2*C1 - B1*C2) / delta, (A1*C2 - A2*C1) / delta);
 }
@@ -62,7 +73,6 @@ bool Raycast::LineSegmentIntersectionPoint(Vector2 pos1, Vector2 pos2, Vector2& 
 	if (delta == 0)
 		return false;
 
-	std::cout << " " << A2 << std::endl;
 
 
 	// now return the Vector2 intersection point
@@ -104,6 +114,8 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 {
 
 	Vector2 intersect;
+	std::vector<Vector2> intersectArr;
+	
 
 	for (size_t i = 0; i < shapeArr.size(); i++)
 	{
@@ -118,24 +130,46 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 				//ray from light source to vertex, against edge of box
 				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0], shapeArr[i]->getVertex()[1], intersect))
 				{
-					endingPos = intersect;
+					intersectArr.push_back(intersect);
 				}
-				else if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1], shapeArr[i]->getVertex()[2], intersect))
+				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1], shapeArr[i]->getVertex()[2], intersect))
 				{
-					endingPos = intersect;
+					intersectArr.push_back(intersect);
 				}
-				else if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2], shapeArr[i]->getVertex()[3], intersect))
+				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2], shapeArr[i]->getVertex()[3], intersect))
 				{
-					endingPos = intersect;
+					intersectArr.push_back(intersect);
 				}
-				else if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3], shapeArr[i]->getVertex()[0], intersect))
+				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3], shapeArr[i]->getVertex()[0], intersect))
 				{
-					endingPos = intersect;
+					intersectArr.push_back(intersect);
 				}
 
-		}
+				//find the closest intersect in the array
 
-		
+				
+				Vector2 Difference = intersectArr[0] - beginingPos;
+				float distance = Difference.Magnitude();
+				int cloestIndex = 0;
+				float lowest = distance;
+				
+				for (size_t i = 0; i < intersectArr.size(); i++)
+				{
+					Difference = intersectArr[i] - beginingPos;
+					distance = Difference.Magnitude();
+
+					if (distance < lowest)
+					{
+						cloestIndex = i;
+						lowest = distance;
+					}
+				}
+
+				endingPos = intersectArr[cloestIndex];
+
+
+			}
+
 
 
 	}

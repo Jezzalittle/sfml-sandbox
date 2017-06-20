@@ -12,10 +12,12 @@ public:
 	void Draw(aie::Renderer2D * renderer);
 	void Update(float deltaTime);
 
+	Vector2 GetMiddle();
 
 	~Shape();
 private:
 
+	Vector2 middle;
 	std::vector < Vector2 > vertexArr;
 
 };

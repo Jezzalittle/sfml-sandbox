@@ -13,6 +13,8 @@ public:
 	void addGameObject(GameObject* go);
 	std::vector<GameObject*> getGOArray();
 
+	void clearByString(std::string tag);
+
 	
 private:
 	std::vector <GameObject* > goArray;

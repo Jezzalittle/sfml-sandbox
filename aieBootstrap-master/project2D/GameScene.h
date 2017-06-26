@@ -30,9 +30,10 @@ private:
 	bool firstPress;
 	bool UpdateShapes;
 
-
+	float rayRefreshTimer;
 	LightBox* lightBox;
 	std::vector<Raycast*> rayArr;
+
 
 	Vector2 tl;
 	Vector2 tr;
@@ -42,3 +43,4 @@ private:
 
 };
 
+// make the shapes bertexes bigger

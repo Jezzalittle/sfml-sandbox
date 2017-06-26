@@ -25,7 +25,12 @@ void LightBox::Draw(aie::Renderer2D * renderer)
 
 void LightBox::Update(float deltaTime)
 {
+	aie::Input* input = aie::Input::getInstance();
 
+	if (input->isKeyDown(aie::INPUT_KEY_LEFT_SHIFT))
+	{
+		transform.SetPosition(Vector2(input->getMouseX(), input->getMouseY()));
+	}
 
 }
 
@@ -45,10 +50,14 @@ std::vector<Raycast*> LightBox::MakeRays(std::vector<Shape*> shapeArr)
 
 
 				Raycast* ray = new Raycast(transform.GetPosition(), shapeArr[i]->getVertex()[j] + (tempvec * (float)(500)));
+
+				Vector2 perpVector(tempvec.y, -tempvec.x);
+				perpVector = perpVector.Normalised();
+
 				rayArr.insert(rayArr.begin(), ray);
-				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] - Vector2(1, 1)) + (tempvec * (float)(500)));
+				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] - perpVector * 1000.0f) + (tempvec * (float)(500)));
 				rayArr.insert(rayArr.begin(), ray);
-				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] + Vector2(1,1)) + (tempvec * (float)(500)));
+				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] + perpVector * 1000.0f) + (tempvec * (float)(500)));
 				rayArr.insert(rayArr.begin(),ray);
 			}
 		}

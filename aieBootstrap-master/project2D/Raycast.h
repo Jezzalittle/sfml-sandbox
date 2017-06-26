@@ -28,6 +28,8 @@ public:
 	
 
 private:
+	Vector2 Difference;
+	bool hit;
 
 };
 

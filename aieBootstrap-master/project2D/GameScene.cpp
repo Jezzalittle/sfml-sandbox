@@ -18,13 +18,15 @@ void GameScene::StartUp()
 	aie::Input* input = aie::Input::getInstance();
 	firstPress = true;
 	UpdateShapes = false;
-
+	lightBox = nullptr;
 
 
 }
 
 void GameScene::Update(float deltaTime)
 {
+	rayRefreshTimer += deltaTime;
+
 	aie::Input* input = aie::Input::getInstance();
 	GOarray = GameManager::instance().om->getGOArray();
 	for (size_t i = 0; i < GOarray.size(); i++)
@@ -32,7 +34,7 @@ void GameScene::Update(float deltaTime)
 		GOarray[i]->Update(deltaTime);
 	}
 
-	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT) && firstPress ==  true)
+	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT) && firstPress == true)
 	{
 		if (UpdateShapes == true)
 		{
@@ -49,7 +51,7 @@ void GameScene::Update(float deltaTime)
 		tr = Vector2(br.x, tl.y);
 		bl = Vector2(tl.x, br.y);
 
-		Shape* shape = new Shape(tl,tr,br,bl);
+		Shape* shape = new Shape(tl, tr, br, bl);
 		ShapeArr.push_back(shape);
 		firstPress = true;
 	}
@@ -60,30 +62,34 @@ void GameScene::Update(float deltaTime)
 	if (input->wasKeyPressed(aie::INPUT_KEY_L))
 	{
 		lightBox = new LightBox(Vector2(input->getMouseX(), input->getMouseY()));
+		Shape* shape = new Shape(Vector2(0, 0), Vector2(GameManager::instance().screenRes.x, 0), Vector2(GameManager::instance().screenRes.x, GameManager::instance().screenRes.y), Vector2(0, GameManager::instance().screenRes.y));
+		ShapeArr.insert(ShapeArr.begin(), shape);
 	}
 
 
-	if (input->wasKeyPressed(aie::INPUT_KEY_P))
-	{
 
-		clearRayArr();
-		UpdateShapes = true;
-		rayArr = lightBox->MakeRays(ShapeArr);
-
-		Shape* shape = new Shape(Vector2(0, 0), Vector2(GameManager::instance().screenRes.x, 0), Vector2(GameManager::instance().screenRes.x, GameManager::instance().screenRes.y), Vector2(0, GameManager::instance().screenRes.y));
-		ShapeArr.insert(ShapeArr.begin(),shape);
-
-		if(lightBox != nullptr)
+		if (lightBox != nullptr)
 		{
-			for (size_t i = 0; i < rayArr.size(); i++)
+
+			clearRayArr();
+			UpdateShapes = true;
+			rayArr = lightBox->MakeRays(ShapeArr);
+
+
+
+			if (lightBox != nullptr)
 			{
-				rayArr[i]->CheckForRaycollision(ShapeArr);
+				for (size_t i = 0; i < rayArr.size(); i++)
+				{
+					rayArr[i]->CheckForRaycollision(ShapeArr);
+				}
 			}
 		}
-	}
+
+	
 
 
-	GameManager::instance().cm->UpdateCollision(GOarray);
+GameManager::instance().cm->UpdateCollision(GOarray);
 }
 
 void GameScene::Draw(aie::Renderer2D* renderer)
@@ -93,7 +99,7 @@ void GameScene::Draw(aie::Renderer2D* renderer)
 	{
 		if (GOarray[i] != nullptr)
 		{
-		GOarray[i]->Draw(renderer);
+			GOarray[i]->Draw(renderer);
 		}
 	}
 }

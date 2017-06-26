@@ -116,6 +116,7 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 	Vector2 intersect;
 	std::vector<Vector2> intersectArr;
 	
+	
 
 	for (size_t i = 0; i < shapeArr.size(); i++)
 	{
@@ -123,56 +124,69 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 			//this sucks debug slowly
 
 			//checks over each vertex
-			for (int j = 0; j < shapeArr[i]->getVertex().size(); j++)
+		for (int j = 0; j < shapeArr[i]->getVertex().size(); j++)
+		{
+
+			//each wall
+			// If at end loop back
+			//ray from light source to vertex, against edge of box
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0], shapeArr[i]->getVertex()[1], intersect))
 			{
-				//each wall
-				// If at end loop back
-				//ray from light source to vertex, against edge of box
-				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0], shapeArr[i]->getVertex()[1], intersect))
-				{
-					intersectArr.push_back(intersect);
-				}
-				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1], shapeArr[i]->getVertex()[2], intersect))
-				{
-					intersectArr.push_back(intersect);
-				}
-				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2], shapeArr[i]->getVertex()[3], intersect))
-				{
-					intersectArr.push_back(intersect);
-				}
-				if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3], shapeArr[i]->getVertex()[0], intersect))
-				{
-					intersectArr.push_back(intersect);
-				}
+				intersectArr.push_back(intersect);
+				hit = true;
+			}
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1], shapeArr[i]->getVertex()[2], intersect))
+			{
+				intersectArr.push_back(intersect);
+				hit = true;
+			}
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2], shapeArr[i]->getVertex()[3], intersect))
+			{
+				intersectArr.push_back(intersect);
+				hit = true;
+			}
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3], shapeArr[i]->getVertex()[0], intersect))
+			{
+				intersectArr.push_back(intersect);
+				hit = true;
+			}
+		}
 
 				//find the closest intersect in the array
 
-				
-				Vector2 Difference = intersectArr[0] - beginingPos;
-				float distance = Difference.Magnitude();
-				int cloestIndex = 0;
-				float lowest = distance;
-				
-				for (size_t i = 0; i < intersectArr.size(); i++)
+				if (intersectArr.size() > 0)
 				{
-					Difference = intersectArr[i] - beginingPos;
-					distance = Difference.Magnitude();
+					Difference = intersectArr[0] - beginingPos;
+					float distance = Difference.Magnitude();
+					int cloestIndex = 0;
+					float lowest = distance;
 
-					if (distance < lowest)
+					distance = abs(distance);
+
+					for (size_t i = 0; i < intersectArr.size(); i++)
 					{
-						cloestIndex = i;
-						lowest = distance;
+						Difference = intersectArr[i] - beginingPos;
+						distance = Difference.Magnitude();
+
+						if (distance < lowest)
+						{
+							cloestIndex = i;
+							lowest = distance;
+						}
 					}
+
+					endingPos = intersectArr[cloestIndex];
+
 				}
-
-				endingPos = intersectArr[cloestIndex];
-
-
+				else
+				{
+					std::cout << "{wheees";
+				}
 			}
 
 
 
-	}
+	
 }
 
 

@@ -130,22 +130,22 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 			//each wall
 			// If at end loop back
 			//ray from light source to vertex, against edge of box
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0], shapeArr[i]->getVertex()[1], intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0] + Vector2(-1, 0), shapeArr[i]->getVertex()[1] + Vector2(1 ,0), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1], shapeArr[i]->getVertex()[2], intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1] + Vector2(0,1), shapeArr[i]->getVertex()[2] + Vector2(0, -1), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2], shapeArr[i]->getVertex()[3], intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2] + Vector2(1, 0), shapeArr[i]->getVertex()[3] + Vector2(-1, 0), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3], shapeArr[i]->getVertex()[0], intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3] + Vector2(0, -1), shapeArr[i]->getVertex()[0] + Vector2(0, 1), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;

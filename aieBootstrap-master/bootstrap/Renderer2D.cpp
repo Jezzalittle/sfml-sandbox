@@ -234,6 +234,106 @@ void Renderer2D::drawCircle(float xPos, float yPos, float radius, float depth) {
 	}
 }
 
+void Renderer2D::drawTriangle(Texture * texture,
+	float xPos, float yPos,
+	float width, float height,
+	float rotation, float depth, float xOrigin, float yOrigin) 
+{
+
+	if (texture == nullptr)
+		texture = m_nullTexture;
+
+	if (shouldFlush())
+		flushBatch();
+	unsigned int textureID = pushTexture(texture);
+
+	if (width == 0.0f)
+		width = (float)texture->getWidth();
+	if (height == 0.0f)
+		height = (float)texture->getHeight();
+
+	//calculates locations
+	float tlX = (0.0f - xOrigin) * width;		float tlY = (0.0f - yOrigin) * height;
+	float trX = (1.0f - xOrigin) * width;		float trY = (0.0f - yOrigin) * height;
+	float brX = (1.0f - xOrigin) * width;		float brY = (1.0f - yOrigin) * height;
+	float blX = (0.0f - xOrigin) * width;		float blY = (1.0f - yOrigin) * height;
+
+	//rotates those points
+	if (rotation != 0.0f) {
+		float si = glm::sin(rotation); float co = glm::cos(rotation);
+		rotateAround(tlX, tlY, tlX, tlY, si, co);
+		rotateAround(trX, trY, trX, trY, si, co);
+		rotateAround(brX, brY, brX, brY, si, co);
+		rotateAround(blX, blY, blX, blY, si, co);
+	}
+
+	//index to current vertex
+	int index = m_currentVertex;
+
+	//set up first vertex
+	m_vertices[m_currentVertex].pos[0] = xPos + tlX;
+	m_vertices[m_currentVertex].pos[1] = yPos + tlY;
+	m_vertices[m_currentVertex].pos[2] = depth;
+	m_vertices[m_currentVertex].pos[3] = (float)textureID;
+	m_vertices[m_currentVertex].color[0] = m_r;
+	m_vertices[m_currentVertex].color[1] = m_g;
+	m_vertices[m_currentVertex].color[2] = m_b;
+	m_vertices[m_currentVertex].color[3] = m_a;
+	m_vertices[m_currentVertex].texcoord[0] = m_uvX;
+	m_vertices[m_currentVertex].texcoord[1] = m_uvY + m_uvH;
+	m_currentVertex++;
+
+	//set up second vertex
+	m_vertices[m_currentVertex].pos[0] = xPos + trX;
+	m_vertices[m_currentVertex].pos[1] = yPos + trY;
+	m_vertices[m_currentVertex].pos[2] = depth;
+	m_vertices[m_currentVertex].pos[3] = (float)textureID;
+	m_vertices[m_currentVertex].color[0] = m_r;
+	m_vertices[m_currentVertex].color[1] = m_g;
+	m_vertices[m_currentVertex].color[2] = m_b;
+	m_vertices[m_currentVertex].color[3] = m_a;
+	m_vertices[m_currentVertex].texcoord[0] = m_uvX + m_uvW;
+	m_vertices[m_currentVertex].texcoord[1] = m_uvY + m_uvH;
+	m_currentVertex++;
+
+	//set up third vertex
+	m_vertices[m_currentVertex].pos[0] = xPos + brX;
+	m_vertices[m_currentVertex].pos[1] = yPos + brY;
+	m_vertices[m_currentVertex].pos[2] = depth;
+	m_vertices[m_currentVertex].pos[3] = (float)textureID;
+	m_vertices[m_currentVertex].color[0] = m_r;
+	m_vertices[m_currentVertex].color[1] = m_g;
+	m_vertices[m_currentVertex].color[2] = m_b;
+	m_vertices[m_currentVertex].color[3] = m_a;
+	m_vertices[m_currentVertex].texcoord[0] = m_uvX + m_uvW;
+	m_vertices[m_currentVertex].texcoord[1] = m_uvY;
+	m_currentVertex++;
+
+	//set up fourth vertex
+	m_vertices[m_currentVertex].pos[0] = xPos + blX;
+	m_vertices[m_currentVertex].pos[1] = yPos + blY;
+	m_vertices[m_currentVertex].pos[2] = depth;
+	m_vertices[m_currentVertex].pos[3] = (float)textureID;
+	m_vertices[m_currentVertex].color[0] = m_r;
+	m_vertices[m_currentVertex].color[1] = m_g;
+	m_vertices[m_currentVertex].color[2] = m_b;
+	m_vertices[m_currentVertex].color[3] = m_a;
+	m_vertices[m_currentVertex].texcoord[0] = m_uvX;
+	m_vertices[m_currentVertex].texcoord[1] = m_uvY;
+	m_currentVertex++;
+
+	//create one triangle between three of the verts
+	m_indices[m_currentIndex++] = (index + 0);
+	m_indices[m_currentIndex++] = (index + 2);
+	m_indices[m_currentIndex++] = (index + 3);
+
+	//create the other triangle between other three of verts (this is the one you need)
+	m_indices[m_currentIndex++] = (index + 0);
+	m_indices[m_currentIndex++] = (index + 1);
+	m_indices[m_currentIndex++] = (index + 2);
+
+}
+
 void Renderer2D::drawSprite(Texture * texture,
 							 float xPos, float yPos, 
 							 float width, float height, 

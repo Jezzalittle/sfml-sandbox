@@ -21,9 +21,11 @@ public:
 
 	std::vector<Raycast*> MakeRays(std::vector<Shape*> shapeArr);
 
-	std::vector<Vector2*> sortArrayByRot(std::vector<Raycast*> rayArr);
+	void sortArrayByRot(std::vector<Raycast*>& rayArr);
 
 	std::vector<Shape*> sortShapes(std::vector<Shape*> shapesArr);
+
+	void CleanUpArray(std::vector<Raycast*>& a_rayArr);
 
 
 	~LightBox();

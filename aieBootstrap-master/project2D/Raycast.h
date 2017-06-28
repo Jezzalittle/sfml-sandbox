@@ -5,7 +5,7 @@
 #include "Shape.h"
 
 
-class Raycast : GameObject
+class Raycast
 {
 public:
 	
@@ -24,6 +24,8 @@ public:
 	bool LineSegmentIntersectionPoint(Vector2 pos1, Vector2 pos2, Vector2& intersectionPoint);
 
 	void CheckForRaycollision(std::vector <Shape*> shapeArr);
+
+	void CleanUpArray(std::vector<Raycast*>&);
 
 	
 

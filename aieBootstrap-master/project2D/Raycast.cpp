@@ -1,18 +1,17 @@
 #include "Raycast.h"
 #include <math.h>
 
-Raycast::Raycast(Vector2 p1, Vector2 p2) : GameObject()
+Raycast::Raycast(Vector2 p1, Vector2 p2)
 {
 	beginingPos = p1;
 	endingPos = p2;
-	tag = "ray";
 }
 
-Raycast::Raycast() : GameObject()
+Raycast::Raycast() 
 {
 	beginingPos = Vector2();
 	endingPos = Vector2();
-	tag = "ray";
+
 }
 
 void Raycast::Draw(aie::Renderer2D * renderer)
@@ -116,7 +115,8 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 	Vector2 intersect;
 	std::vector<Vector2> intersectArr;
 	
-	
+
+
 
 	for (size_t i = 0; i < shapeArr.size(); i++)
 	{
@@ -130,6 +130,9 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 			//each wall
 			// If at end loop back
 			//ray from light source to vertex, against edge of box
+
+
+
 			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0] + Vector2(-1, 0), shapeArr[i]->getVertex()[1] + Vector2(1 ,0), intersect))
 			{
 				intersectArr.push_back(intersect);
@@ -153,7 +156,6 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 		}
 
 				//find the closest intersect in the array
-
 				if (intersectArr.size() > 0)
 				{
 					Difference = intersectArr[0] - beginingPos;
@@ -182,6 +184,10 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 				{
 					std::cout << "{wheees";
 				}
+
+
+
+
 			}
 
 

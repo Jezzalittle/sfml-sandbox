@@ -34,6 +34,8 @@ void GameScene::Update(float deltaTime)
 		GOarray[i]->Update(deltaTime);
 	}
 
+
+
 	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT) && firstPress == true)
 	{
 		if (UpdateShapes == true)
@@ -68,33 +70,41 @@ void GameScene::Update(float deltaTime)
 
 
 
-		if (lightBox != nullptr)
+	if (lightBox != nullptr)
+	{
+		clearRayArr();
+		UpdateShapes = true;
+		rayArr = lightBox->MakeRays(ShapeArr);
+		lightBox->sortArrayByRot(rayArr);
+
+		for (size_t i = 0; i < rayArr.size(); i++)
 		{
-
-			clearRayArr();
-			UpdateShapes = true;
-			rayArr = lightBox->MakeRays(ShapeArr);
-
-
-
-			if (lightBox != nullptr)
-			{
-				for (size_t i = 0; i < rayArr.size(); i++)
-				{
-					rayArr[i]->CheckForRaycollision(ShapeArr);
-				}
-			}
+			rayArr[i]->CheckForRaycollision(ShapeArr);
 		}
 
-	
+		lightBox->CleanUpArray(rayArr);
+	}
 
 
-GameManager::instance().cm->UpdateCollision(GOarray);
+
+
+
+	GameManager::instance().cm->UpdateCollision(GOarray);
 }
 
 void GameScene::Draw(aie::Renderer2D* renderer)
 {
 	GOarray = GameManager::instance().om->getGOArray();
+
+	for (size_t i = 0; i < rayArr.size(); i++)
+	{
+		if (rayArr[i] != nullptr)
+		{
+			rayArr[i]->Draw(renderer);
+		}
+	}
+
+
 	for (size_t i = 0; i < GOarray.size(); i++)
 	{
 		if (GOarray[i] != nullptr)

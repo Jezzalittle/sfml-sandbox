@@ -55,18 +55,37 @@ std::vector<Raycast*> LightBox::MakeRays(std::vector<Shape*> shapeArr)
 				perpVector = perpVector.Normalised();
 
 				rayArr.insert(rayArr.begin(), ray);
-				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] - perpVector * 1000.0f) + (tempvec * (float)(500)));
+				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] - perpVector * 550) + (tempvec * (float)(500)));
 				rayArr.insert(rayArr.begin(), ray);
-				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] + perpVector * 1000.0f) + (tempvec * (float)(500)));
+				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] + perpVector *550) + (tempvec * (float)(500)));
 				rayArr.insert(rayArr.begin(),ray);
 			}
 		}
 		return rayArr;
 }
 
-std::vector<Vector2*> LightBox::sortArrayByRot(std::vector<Raycast*> rayArr)
+void LightBox::sortArrayByRot(std::vector<Raycast*>& rayArr)
 {
-	return std::vector<Vector2*>();
+
+
+	Raycast* temp;
+
+	for (int i = 1; i< rayArr.size(); ++i)
+	{
+		for (int j = 0; j<(rayArr.size() - i); ++j)
+			if (rayArr[j]->GetDegree() > rayArr[j + 1]->GetDegree())
+			{
+				temp = rayArr[j];
+				rayArr[j] = rayArr[j + 1];
+				rayArr[j + 1] = temp;
+			}
+
+	}
+
+
+
+
+//	return std::vector<Vector2*>();
 }
 
 std::vector<Shape*> LightBox::sortShapes(std::vector<Shape*> shapesArr)
@@ -99,6 +118,30 @@ std::vector<Shape*> LightBox::sortShapes(std::vector<Shape*> shapesArr)
 
 }
 
+void LightBox::CleanUpArray(std::vector<Raycast*>& a_rayArr)
+{
+	Vector2 vecBetween;
+	float distance;
+	std::vector<Raycast*>::iterator iter = a_rayArr.begin();
+
+	for (; iter != a_rayArr.end();)
+	{
+		if (iter != a_rayArr.end() - 1)
+		{
+			vecBetween = (*iter)->endingPos - (*(iter + 1))->endingPos;
+			distance = vecBetween.Magnitude();
+
+			if (distance < 5)
+			{
+				iter = a_rayArr.erase(iter);
+				continue;
+			}
+		}
+
+		iter++;
+	}
+
+}
 
 
 

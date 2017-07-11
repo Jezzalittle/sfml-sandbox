@@ -25,7 +25,6 @@ public:
 
 	void CheckForRaycollision(std::vector <Shape*> shapeArr);
 
-	void CleanUpArray(std::vector<Raycast*>&);
 
 	
 

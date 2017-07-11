@@ -143,6 +143,25 @@ void LightBox::CleanUpArray(std::vector<Raycast*>& a_rayArr)
 
 }
 
+void LightBox::MakeLightTriangles(std::vector<Raycast*> a_rayArr)
+{
+
+
+	for (size_t i = 0; i < a_rayArr.size(); i++)
+	{
+		if (i == a_rayArr.size() - 1)
+		{
+			new Shape(nullptr, a_rayArr[i]->beginingPos, a_rayArr[i]->endingPos, a_rayArr[0]->endingPos);
+		}
+		else
+		{
+			new Shape(nullptr, a_rayArr[i]->beginingPos, a_rayArr[i]->endingPos, a_rayArr[i + 1]->endingPos);
+		}
+	}
+
+}
+
+
 
 
 LightBox::~LightBox()

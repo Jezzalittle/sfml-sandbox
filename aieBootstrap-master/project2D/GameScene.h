@@ -23,6 +23,8 @@ public:
 private:
 
 	void clearRayArr();
+	void clearLightTrianglesArr();
+
 
 	std::vector <GameObject*> GOarray; 
 	std::vector <Shape*> ShapeArr;
@@ -33,6 +35,8 @@ private:
 	float rayRefreshTimer;
 	LightBox* lightBox;
 	std::vector<Raycast*> rayArr;
+
+
 
 
 	Vector2 tl;

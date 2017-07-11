@@ -19,10 +19,8 @@ public:
 	// simple shape rendering
 	virtual void drawBox(float xPos, float yPos, float width, float height, float rotation = 0.0f, float depth = 0.0f);
 	virtual void drawCircle(float xPos, float yPos, float radius, float depth = 0.0f);
-	virtual void drawTriangle(Texture * texture,
-		float xPos, float yPos,
-		float width, float height,
-		float rotation, float depth, float xOrigin, float yOrigin);
+	virtual void drawTriangle(Texture * texture, float x1, float y1, float x2, float y2, float x3, float y3);
+
 
 	// if texture is nullptr then it renders a coloured sprite
 	// depth is in the range [0,100] with lower being closer to the viewer

@@ -133,22 +133,22 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 
 
 
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0] + Vector2(-1, 0), shapeArr[i]->getVertex()[1] + Vector2(1 ,0), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0] + Vector2(-1.1, 0), shapeArr[i]->getVertex()[1] + Vector2(1.1 ,0), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1] + Vector2(0,1), shapeArr[i]->getVertex()[2] + Vector2(0, -1), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1] + Vector2(0,1.1), shapeArr[i]->getVertex()[2] + Vector2(0, -1.1), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2] + Vector2(1, 0), shapeArr[i]->getVertex()[3] + Vector2(-1, 0), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2] + Vector2(1.1, 0), shapeArr[i]->getVertex()[3] + Vector2(-1.1, 0), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3] + Vector2(0, -1), shapeArr[i]->getVertex()[0] + Vector2(0, 1), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3] + Vector2(0, -1.1), shapeArr[i]->getVertex()[0] + Vector2(0, 1.1), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
@@ -180,11 +180,11 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 					endingPos = intersectArr[cloestIndex];
 
 				}
-				else
-				{
-					std::cout << "{wheees";
-				}
-
+			else
+			{
+				std::cout << "{wheees";
+			}
+		
 
 
 

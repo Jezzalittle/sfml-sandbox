@@ -27,6 +27,9 @@ public:
 
 	void CleanUpArray(std::vector<Raycast*>& a_rayArr);
 
+	void MakeLightTriangles(std::vector<Raycast*> a_rayArr);
+
+
 
 	~LightBox();
 

@@ -19,7 +19,7 @@ void GameScene::StartUp()
 	firstPress = true;
 	UpdateShapes = false;
 	lightBox = nullptr;
-
+	
 
 }
 
@@ -33,7 +33,7 @@ void GameScene::Update(float deltaTime)
 	{
 		GOarray[i]->Update(deltaTime);
 	}
-
+	
 
 
 	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT) && firstPress == true)
@@ -72,6 +72,7 @@ void GameScene::Update(float deltaTime)
 
 	if (lightBox != nullptr)
 	{
+		clearLightTrianglesArr();
 		clearRayArr();
 		UpdateShapes = true;
 		rayArr = lightBox->MakeRays(ShapeArr);
@@ -83,9 +84,14 @@ void GameScene::Update(float deltaTime)
 		}
 
 		lightBox->CleanUpArray(rayArr);
+		lightBox->MakeLightTriangles(rayArr);
 	}
 
+	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_RIGHT))
+	{
 
+
+	}
 
 
 
@@ -96,6 +102,8 @@ void GameScene::Draw(aie::Renderer2D* renderer)
 {
 	GOarray = GameManager::instance().om->getGOArray();
 
+	//renderer->drawTriangle(nullptr, 10,10, 500,500, 10,350);
+
 	for (size_t i = 0; i < rayArr.size(); i++)
 	{
 		if (rayArr[i] != nullptr)
@@ -103,6 +111,7 @@ void GameScene::Draw(aie::Renderer2D* renderer)
 			rayArr[i]->Draw(renderer);
 		}
 	}
+
 
 
 	for (size_t i = 0; i < GOarray.size(); i++)
@@ -119,13 +128,18 @@ std::vector<Shape*> GameScene::GetShapeArr()
 	return ShapeArr;
 }
 
-
-GameScene::~GameScene()
-{
-}
-
 void GameScene::clearRayArr()
 {
 	rayArr.clear();
 	GameManager::instance().om->clearByString("ray");
 }
+
+void GameScene::clearLightTrianglesArr()
+{
+	GameManager::instance().om->clearByString("triangle");
+}
+
+GameScene::~GameScene()
+{
+}
+

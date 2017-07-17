@@ -131,7 +131,7 @@ void LightBox::CleanUpArray(std::vector<Raycast*>& a_rayArr)
 			vecBetween = (*iter)->endingPos - (*(iter + 1))->endingPos;
 			distance = vecBetween.Magnitude();
 
-			if (distance < 5)
+			if (distance < 1)
 			{
 				iter = a_rayArr.erase(iter);
 				continue;

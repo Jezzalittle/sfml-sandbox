@@ -1,5 +1,5 @@
 #include "Shape.h"
-
+#include "GameManager.h"
 
 
 Shape::Shape() : GameObject()
@@ -61,7 +61,11 @@ void Shape::Draw(aie::Renderer2D * renderer)
 	}
 	else if (vertexArr.size() == 3)
 	{
+		
+		renderer->setRenderColour(GameManager::instance().GetRendererColor().x, GameManager::instance().GetRendererColor().y, GameManager::instance().GetRendererColor().z, GameManager::instance().GetRendererColor().w);
 		renderer->drawTriangle(nullptr, vertexArr[0].x, vertexArr[0].y, vertexArr[1].x, vertexArr[1].y, vertexArr[2].x, vertexArr[2].y);
+		renderer->setRenderColour(1, 1, 1);
+
 	}
 
 }

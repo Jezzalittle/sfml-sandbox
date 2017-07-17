@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include <vector>
 #include "Vector2.h"
+#include <imgui.h>
 
 class Raycast;
 class LightBox;
@@ -36,8 +37,9 @@ private:
 	LightBox* lightBox;
 	std::vector<Raycast*> rayArr;
 
+	
 
-
+	float colorArr[4];
 
 	Vector2 tl;
 	Vector2 tr;

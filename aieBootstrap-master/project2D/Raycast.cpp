@@ -1,6 +1,6 @@
 #include "Raycast.h"
 #include <math.h>
-
+#include "GameManager.h"
 Raycast::Raycast(Vector2 p1, Vector2 p2)
 {
 	beginingPos = p1;
@@ -16,8 +16,11 @@ Raycast::Raycast()
 
 void Raycast::Draw(aie::Renderer2D * renderer)
 {
-	renderer->drawLine(beginingPos.x, beginingPos.y, endingPos.x, endingPos.y);
-	renderer->drawCircle(endingPos.x, endingPos.y, 5);
+	if (GameManager::instance().DrawRays == true)
+	{
+		renderer->drawLine(beginingPos.x, beginingPos.y, endingPos.x, endingPos.y);
+		renderer->drawCircle(endingPos.x, endingPos.y, 5);
+	}
 }
 
 float Raycast::GetDegree()
@@ -133,22 +136,22 @@ void Raycast::CheckForRaycollision(std::vector<Shape*> shapeArr)
 
 
 
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0] + Vector2(-1.1, 0), shapeArr[i]->getVertex()[1] + Vector2(1.1 ,0), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[0] + Vector2(-1, 0), shapeArr[i]->getVertex()[1] + Vector2(1 ,0), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1] + Vector2(0,1.1), shapeArr[i]->getVertex()[2] + Vector2(0, -1.1), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[1] + Vector2(0,1), shapeArr[i]->getVertex()[2] + Vector2(0, -1), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2] + Vector2(1.1, 0), shapeArr[i]->getVertex()[3] + Vector2(-1.1, 0), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[2] + Vector2(1, 0), shapeArr[i]->getVertex()[3] + Vector2(-1, 0), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;
 			}
-			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3] + Vector2(0, -1.1), shapeArr[i]->getVertex()[0] + Vector2(0, 1.1), intersect))
+			if (LineSegmentIntersectionPoint(shapeArr[i]->getVertex()[3] + Vector2(0, -1), shapeArr[i]->getVertex()[0] + Vector2(0, 1), intersect))
 			{
 				intersectArr.push_back(intersect);
 				hit = true;

@@ -21,6 +21,13 @@ void TextureManager::Add(aie::Texture* texture)
 	textureArray.push_back(texture);
 }
 
+TextureManager::~TextureManager()
+{
+
+}
+
+
+
 aie::Texture * TextureManager::FindByFileName(std::string tag)
 {
 	for (int i = 0; i < textureArray.size(); i++)
@@ -35,10 +42,6 @@ aie::Texture * TextureManager::FindByFileName(std::string tag)
 }
 
 
-TextureManager::~TextureManager()
-{
-
-}
 
 void TextureManager::printTextureArray()
 {

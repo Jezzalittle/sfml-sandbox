@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "ObjectManager.h"
 #include "CollsionManager.h"
+#include "Vector4.h"
 
 class GameManager
 {
@@ -19,6 +20,7 @@ public:
 	
 
 
+
 	CollsionManager* cm;
 	TextureManager* tm;
 	SceneManager* sm;
@@ -28,9 +30,18 @@ public:
 
 	Vector2 screenRes;
 
+	bool DrawRays;
+
+
+	Vector4 GetRendererColor();
+	void SetRendererColor(float x, float y, float z, float w);
+
+	
+	
+
 private:
 	GameManager();
-
+	Vector4 color;
 
 };
 

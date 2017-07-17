@@ -5,11 +5,11 @@
 #include "LightBox.h"
 #include "Raycast.h"
 
-
 GameScene::GameScene()
 {
 	nameOfScene = "GameScene";
 	GameManager::instance().sm->CreateScene(this);
+
 }
 
 void GameScene::StartUp()
@@ -19,7 +19,7 @@ void GameScene::StartUp()
 	firstPress = true;
 	UpdateShapes = false;
 	lightBox = nullptr;
-	
+	colorArr[3] = 255;
 
 }
 
@@ -35,8 +35,18 @@ void GameScene::Update(float deltaTime)
 	}
 	
 
+	ImGui::Begin("Command Menu");
+	ImGui::Text("Use Right Click to Create Objects");
+	ImGui::Text("Press L To Create A Light");
+	ImGui::Checkbox("Draw Rays", &GameManager::instance().DrawRays);
+	ImGui::ColorEdit4("Color", colorArr);
 
-	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT) && firstPress == true)
+
+	ImGui::End();
+
+	GameManager::instance().SetRendererColor(colorArr[0], colorArr[1], colorArr[2], colorArr[3]);
+
+	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_RIGHT) && firstPress == true)
 	{
 		if (UpdateShapes == true)
 		{
@@ -47,7 +57,7 @@ void GameScene::Update(float deltaTime)
 		tl = Vector2((float)input->getMouseX(), (float)input->getMouseY());
 		firstPress = false;
 	}
-	else if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT) && firstPress == false)
+	else if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_RIGHT) && firstPress == false)
 	{
 		br = Vector2((float)input->getMouseX(), (float)input->getMouseY());
 		tr = Vector2(br.x, tl.y);
@@ -63,6 +73,7 @@ void GameScene::Update(float deltaTime)
 
 	if (input->wasKeyPressed(aie::INPUT_KEY_L))
 	{
+		
 		lightBox = new LightBox(Vector2(input->getMouseX(), input->getMouseY()));
 		Shape* shape = new Shape(Vector2(0, 0), Vector2(GameManager::instance().screenRes.x, 0), Vector2(GameManager::instance().screenRes.x, GameManager::instance().screenRes.y), Vector2(0, GameManager::instance().screenRes.y));
 		ShapeArr.insert(ShapeArr.begin(), shape);
@@ -87,11 +98,6 @@ void GameScene::Update(float deltaTime)
 		lightBox->MakeLightTriangles(rayArr);
 	}
 
-	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_RIGHT))
-	{
-
-
-	}
 
 
 
@@ -104,14 +110,6 @@ void GameScene::Draw(aie::Renderer2D* renderer)
 
 	//renderer->drawTriangle(nullptr, 10,10, 500,500, 10,350);
 
-	for (size_t i = 0; i < rayArr.size(); i++)
-	{
-		if (rayArr[i] != nullptr)
-		{
-			rayArr[i]->Draw(renderer);
-		}
-	}
-
 
 
 	for (size_t i = 0; i < GOarray.size(); i++)
@@ -121,6 +119,14 @@ void GameScene::Draw(aie::Renderer2D* renderer)
 			GOarray[i]->Draw(renderer);
 		}
 	}
+	for (size_t i = 0; i < rayArr.size(); i++)
+	{
+		if (rayArr[i] != nullptr)
+		{
+			rayArr[i]->Draw(renderer);
+		}
+	}
+
 }
 
 std::vector<Shape*> GameScene::GetShapeArr()

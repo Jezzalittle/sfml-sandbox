@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "Texture.h"
+#include "Vector3.h"
 
 class aie::Texture;
 
@@ -37,12 +38,15 @@ public:
 	Color* GetRandomColor();
 
 
+
 private:
 	Color* red;
 	Color* green;
 	Color* pink;
 	Color* blue;
 	void PullTextures();
+	
+	std::vector<Vector3*> lightColors;
 
 	std::vector<aie::Texture*> textureArray;
 	

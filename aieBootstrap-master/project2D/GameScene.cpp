@@ -20,7 +20,7 @@ void GameScene::StartUp()
 	UpdateShapes = false;
 	lightBox = nullptr;
 	colorArr[3] = 255;
-
+	colorArr[0] = 255;
 }
 
 void GameScene::Update(float deltaTime)
@@ -38,6 +38,7 @@ void GameScene::Update(float deltaTime)
 	ImGui::Begin("Command Menu");
 	ImGui::Text("Use Right Click to Create Objects");
 	ImGui::Text("Press L To Create A Light");
+	ImGui::Text("Hold Left Shift to Move The Light");
 	ImGui::Checkbox("Draw Rays", &GameManager::instance().DrawRays);
 	ImGui::ColorEdit4("Color", colorArr);
 

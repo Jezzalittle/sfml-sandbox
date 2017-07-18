@@ -26,7 +26,7 @@ Shape::Shape(aie::Texture* a_texture, Vector2 xy1, Vector2 xy2, Vector2 xy3) : G
 	texture = a_texture;
 	
 	//**********************
-	texture = nullptr;
+	texture = GameManager::instance().tm->FindByFileName("tankRed.png");
 
 	tag = "triangle";
 	
@@ -51,11 +51,11 @@ void Shape::Draw(aie::Renderer2D * renderer)
 		{
 			if (i == vertexArr.size() - 1)
 			{
-				renderer->drawLine(vertexArr[i].x, vertexArr[i].y, vertexArr[0].x, vertexArr[0].y, 1.0f);
+				renderer->drawLine(vertexArr[i].x, vertexArr[i].y, vertexArr[0].x, vertexArr[0].y, 3.0f, -1);
 			}
 			else
 			{
-				renderer->drawLine(vertexArr[i].x, vertexArr[i].y, vertexArr[i + 1].x, vertexArr[i + 1].y, 1.0f);
+				renderer->drawLine(vertexArr[i].x, vertexArr[i].y, vertexArr[i + 1].x, vertexArr[i + 1].y, 3.0f, -1);
 			}
 		}
 	}

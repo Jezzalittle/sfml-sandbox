@@ -20,7 +20,7 @@ LightBox::LightBox(Vector2 a_pos) : GameObject()
 
 void LightBox::Draw(aie::Renderer2D * renderer)
 {
-	renderer->drawBox(transform.GetPosition().x, transform.GetPosition().y, 5, 5);
+	renderer->drawBox(transform.GetPosition().x, transform.GetPosition().y, 5, 5,0,-1);
 }
 
 void LightBox::Update(float deltaTime)
@@ -46,7 +46,7 @@ std::vector<Raycast*> LightBox::MakeRays(std::vector<Shape*> shapeArr)
 			{
 
 				Vector2 tempvec = shapeArr[i]->getVertex()[j] - transform.GetPosition();
-
+				Vector2 roundedVec;
 
 
 				Raycast* ray = new Raycast(transform.GetPosition(), shapeArr[i]->getVertex()[j] + (tempvec * (float)(500)));
@@ -55,10 +55,16 @@ std::vector<Raycast*> LightBox::MakeRays(std::vector<Shape*> shapeArr)
 				perpVector = perpVector.Normalised();
 
 				rayArr.insert(rayArr.begin(), ray);
-				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] - perpVector * 550) + (tempvec * (float)(500)));
+				
+				roundedVec = ((shapeArr[i]->getVertex()[j] - perpVector * 550) + (tempvec * (float)(500)));
+				roundedVec = Vector2(roundf(roundedVec.x), roundf(roundedVec.y));
+				ray = new Raycast(transform.GetPosition(), roundedVec);
 				rayArr.insert(rayArr.begin(), ray);
-				ray = new Raycast(transform.GetPosition(), (shapeArr[i]->getVertex()[j] + perpVector *550) + (tempvec * (float)(500)));
-				rayArr.insert(rayArr.begin(),ray);
+				
+				roundedVec = ((shapeArr[i]->getVertex()[j] + perpVector * 550) + (tempvec * (float)(500)));
+				roundedVec = Vector2(roundf(roundedVec.x), roundf(roundedVec.y));
+				ray = new Raycast(transform.GetPosition(), roundedVec);
+				rayArr.insert(rayArr.begin(), ray);
 			}
 		}
 		return rayArr;
@@ -131,7 +137,7 @@ void LightBox::CleanUpArray(std::vector<Raycast*>& a_rayArr)
 			vecBetween = (*iter)->endingPos - (*(iter + 1))->endingPos;
 			distance = vecBetween.Magnitude();
 
-			if (distance < 1)
+			if (distance < 3)
 			{
 				iter = a_rayArr.erase(iter);
 				continue;

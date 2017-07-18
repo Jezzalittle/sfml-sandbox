@@ -2,3 +2,4 @@
 ./textures/GreenBucket.png
 ./textures/PinkBucket.png
 ./textures/RedBucket.png
+./textures/tankRed.png

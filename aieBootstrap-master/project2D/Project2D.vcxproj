@@ -99,6 +99,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="LightBox.cpp" />
+    <ClCompile Include="LightTriAngles.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Raycast.cpp" />
@@ -116,6 +117,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="LightBox.h" />
+    <ClInclude Include="LightTriAngles.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Raycast.h" />
     <ClInclude Include="Scene.h" />

@@ -36,17 +36,10 @@ private:
 	float rayRefreshTimer;
 	LightBox* lightBox;
 	std::vector<Raycast*> rayArr;
-
+	std::vector<Vector2> vertsArr;
 	
 
 	float colorArr[4];
-
-	Vector2 tl;
-	Vector2 tr;
-	Vector2 bl;
-	Vector2 br;
-	Vector2 mid;
-
 };
 
 // make the shapes bertexes bigger

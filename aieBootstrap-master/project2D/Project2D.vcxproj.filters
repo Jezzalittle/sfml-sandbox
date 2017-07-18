@@ -60,6 +60,9 @@
     <ClCompile Include="LightBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LightTriAngles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LightBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightTriAngles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,6 +5,8 @@
 #include "LightBox.h"
 #include "Raycast.h"
 
+
+
 GameScene::GameScene()
 {
 	nameOfScene = "GameScene";
@@ -47,31 +49,17 @@ void GameScene::Update(float deltaTime)
 
 	GameManager::instance().SetRendererColor(colorArr[0], colorArr[1], colorArr[2], colorArr[3]);
 
-	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_RIGHT) && firstPress == true)
+	if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_RIGHT))
 	{
-		if (UpdateShapes == true)
-		{
-			ShapeArr = lightBox->sortShapes(ShapeArr);
-			UpdateShapes = false;
-		}
-
-		tl = Vector2((float)input->getMouseX(), (float)input->getMouseY());
-		firstPress = false;
-	}
-	else if (input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_RIGHT) && firstPress == false)
-	{
-		br = Vector2((float)input->getMouseX(), (float)input->getMouseY());
-		tr = Vector2(br.x, tl.y);
-		bl = Vector2(tl.x, br.y);
-
-		Shape* shape = new Shape(tl, tr, br, bl);
-		ShapeArr.push_back(shape);
-		firstPress = true;
+		vertsArr.push_back((Vector2(input->getMouseX(), input->getMouseY())));
 	}
 
 
-
-
+	if (input->wasKeyPressed(aie::INPUT_KEY_ENTER))
+	{
+		ShapeArr.push_back(new Shape(vertsArr));
+		vertsArr.clear();
+	}
 	if (input->wasKeyPressed(aie::INPUT_KEY_L))
 	{
 		

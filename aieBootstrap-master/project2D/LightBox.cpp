@@ -1,6 +1,6 @@
 #include "LightBox.h"
 #include "GameManager.h"
-#include "Shape.h"
+#include "LightTriangles.h"
 #include "Raycast.h"
 
 
@@ -157,11 +157,11 @@ void LightBox::MakeLightTriangles(std::vector<Raycast*> a_rayArr)
 	{
 		if (i == a_rayArr.size() - 1)
 		{
-			new Shape(nullptr, a_rayArr[i]->beginingPos, a_rayArr[i]->endingPos, a_rayArr[0]->endingPos);
+			new LightTriangles(nullptr, a_rayArr[i]->beginingPos, a_rayArr[i]->endingPos, a_rayArr[0]->endingPos);
 		}
 		else
 		{
-			new Shape(nullptr, a_rayArr[i]->beginingPos, a_rayArr[i]->endingPos, a_rayArr[i + 1]->endingPos);
+			new LightTriangles(nullptr, a_rayArr[i]->beginingPos, a_rayArr[i]->endingPos, a_rayArr[i + 1]->endingPos);
 		}
 	}
 

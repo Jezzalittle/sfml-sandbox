@@ -5,8 +5,9 @@ class Shape : GameObject
 {
 public:
 	Shape();
-	Shape(Vector2 tl, Vector2 rl, Vector2 bl, Vector2 br);
-	Shape(aie::Texture* texture, Vector2 xy1, Vector2 xy2, Vector2 xy3);
+	Shape(std::vector<Vector2> verts);
+	Shape(Vector2 tl, Vector2 tr, Vector2 br, Vector2 bl);
+
 
 
 	void addVetex(Vector2 v2);

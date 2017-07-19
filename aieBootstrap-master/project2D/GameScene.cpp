@@ -23,6 +23,7 @@ void GameScene::StartUp()
 	lightBox = nullptr;
 	colorArr[3] = 255;
 	colorArr[0] = 255;
+	GameManager::instance().DrawRays = false;
 }
 
 void GameScene::Update(float deltaTime)

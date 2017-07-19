@@ -56,12 +56,12 @@ std::vector<Raycast*> LightBox::MakeRays(std::vector<Shape*> shapeArr)
 
 				rayArr.insert(rayArr.begin(), ray);
 				
-				roundedVec = ((shapeArr[i]->getVertex()[j] - perpVector * 550) + (tempvec * (float)(500)));
+				roundedVec = ((shapeArr[i]->getVertex()[j] - perpVector * 107) + (tempvec * (float)(100)));
 				roundedVec = Vector2(roundf(roundedVec.x), roundf(roundedVec.y));
 				ray = new Raycast(transform.GetPosition(), roundedVec);
 				rayArr.insert(rayArr.begin(), ray);
 				
-				roundedVec = ((shapeArr[i]->getVertex()[j] + perpVector * 550) + (tempvec * (float)(500)));
+				roundedVec = ((shapeArr[i]->getVertex()[j] + perpVector * 107) + (tempvec * (float)(100)));
 				roundedVec = Vector2(roundf(roundedVec.x), roundf(roundedVec.y));
 				ray = new Raycast(transform.GetPosition(), roundedVec);
 				rayArr.insert(rayArr.begin(), ray);
@@ -137,7 +137,7 @@ void LightBox::CleanUpArray(std::vector<Raycast*>& a_rayArr)
 			vecBetween = (*iter)->endingPos - (*(iter + 1))->endingPos;
 			distance = vecBetween.Magnitude();
 
-			if (distance < 3)
+			if (distance < 1)
 			{
 				iter = a_rayArr.erase(iter);
 				continue;
